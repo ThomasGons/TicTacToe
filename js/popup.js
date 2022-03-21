@@ -7,7 +7,7 @@ popup.addEventListener("keydown", (event) => {
         closePopup();
 })
 
-async function openPopup(outcome) {
+async function openPopup(outcome){
     popup.style.display = "flex";
     await sleep(25);
     popup.style.transform = "scale(1)";
@@ -25,5 +25,6 @@ async function closePopup() {
     await sleep(700);
     popup.style.display = "none";
     document.getElementById("inGame").style.filter = "blur(0)";
+    await sleep(1500);
     clean();
 }
