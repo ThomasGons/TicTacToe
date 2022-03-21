@@ -6,10 +6,9 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/styles.css">
     <script src="js/popup.js" defer></script>
-    <script src="js/game.js" defer></script>
-    <script src="js/init.js" defer></script>
+    <script src="js/gamecp.js" defer></script>
+    <script src="js/initcp.js" defer></script>
     <script src="js/misc.js" defer></script>
-    <script src="js/slider.js" defer></script>
 </head>
 
 <body>
@@ -42,30 +41,25 @@
         <div id="game">
             <h1>Tic Tac Toe</h1>
             <div id="grid">
-                <div class="square"></div>
-                <div class="square"></div>
-                <div class="square"></div>
-
-                <div class="square"></div>
-                <div class="square"></div>
-                <div class="square"></div>
-
-                <div class="square"></div>
-                <div class="square"></div>
-                <div class="square"></div>
             </div>
             <div id="score">
                 <div class="player">
-                    <div>Player 1</div>
-                    <div id="p1">0</div>
+                    <img id="symbol_p1" src="img/circle.png" alt="" width="50">
+                    <div class="subPlayer">
+                        <div id="p1_name">Player 1</div>
+                        <div id="score_p1">0</div>
+                    </div>
                 </div>
-                <div class="player">
+                <div id="draw">
                     <div>-</div>
-                    <div id="draw">0</div>
+                    <div id="numberDraw">0</div>
                 </div>
                 <div class="player">
-                    <div>Player 2</div>
-                    <div id="p2">0</div>
+                    <div class="subPlayer">
+                        <div id="p2_name">Player 2</div>
+                        <div id="score_p2">0</div>
+                    </div>
+                    <img id="symbol_p2" src="img/cross.png" alt="" width="50">
                 </div>
             </div>
         </div>

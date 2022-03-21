@@ -1,10 +1,5 @@
-@font-face {
-  src: url(../fonts/OldLondon.ttf);
-  font-family: "Old London";
-}
-
 html {
-  font-family: "Old London";
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 body {
@@ -98,8 +93,14 @@ aside {
   margin: 5% 0;
 }
 
+.gm,
+.gm label {
+  min-width: -webkit-max-content;
+  min-width: -moz-max-content;
+  min-width: max-content;
+}
+
 #options {
-  margin-top: 30%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -125,6 +126,9 @@ aside {
 
 #sizeLabel,
 #alignmentLabel {
+  min-width: -webkit-max-content;
+  min-width: -moz-max-content;
+  min-width: max-content;
   font-size: 1em;
   padding: 15% 0;
 }
@@ -157,8 +161,8 @@ aside {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 13.3333em;
-  height: 13.3333em;
+  width: 12.333em;
+  height: 12.333em;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -180,11 +184,52 @@ aside {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  width: 30%;
+  width: 50%;
+  min-width: -webkit-max-content;
+  min-width: -moz-max-content;
+  min-width: max-content;
   margin-top: 4%;
 }
 
 .player {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-width: -webkit-max-content;
+  min-width: -moz-max-content;
+  min-width: max-content;
+  font-size: 30pt;
+  color: white;
+}
+
+.player #symbol_p1 {
+  margin-right: 25px;
+}
+
+.player #symbol_p2 {
+  margin-left: 25px;
+}
+
+.subPlayer {
+  text-align: center;
+  width: auto;
+  font-size: 30pt;
+  color: white;
+}
+
+.player img {
+  border: solid 1pt rgba(187, 187, 187, 0.95);
+  border-radius: 10%;
+  padding: 10px;
+}
+
+#draw {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -195,24 +240,18 @@ aside {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  width: auto;
-  font-size: 30pt;
+  min-width: -webkit-max-content;
+  min-width: -moz-max-content;
+  min-width: max-content;
   color: white;
-}
-
-#p1,
-#p2,
-#draw {
-  padding-top: 10px;
+  font-size: 30pt;
 }
 
 #result {
   position: absolute;
-  top: -25%;
-  left: 31em;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  top: 25%;
+  left: 21%;
+  display: none;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -223,13 +262,15 @@ aside {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  height: 25%;
-  width: 30%;
+  height: 40%;
+  width: 40%;
   background-color: rgba(25, 25, 25, 0.95);
   border-bottom-left-radius: 5%;
   border-bottom-right-radius: 5%;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
+  -webkit-transition: 1.25s;
+  transition: 1.25s;
+  -webkit-transform: scale(0.2);
+          transform: scale(0.2);
 }
 
 #result i {
@@ -240,6 +281,12 @@ aside {
 }
 
 #popup button {
+  background: none;
+  border: 2px solid;
+  font: inherit;
+  line-height: 1;
+  margin: 0.5em;
+  padding: 1em 2em;
   width: 30%;
   cursor: pointer;
 }

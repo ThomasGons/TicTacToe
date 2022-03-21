@@ -7,8 +7,10 @@ popup.addEventListener("keydown", (event) => {
         closePopup();
 })
 
-function openPopup(outcome) {
-    popup.style.top = "0px";
+async function openPopup(outcome) {
+    popup.style.display = "flex";
+    await sleep(25);
+    popup.style.transform = "scale(1)";
     popup.firstElementChild.textContent = outcome;
     document.getElementById("inGame").style.filter = "blur(5px)";
     document.addEventListener("keydown", (event) => {
@@ -18,8 +20,10 @@ function openPopup(outcome) {
     })
 }
 
-function closePopup() {
+async function closePopup() {
+    popup.style.transform = "scale(0.3)";
+    await sleep(700);
+    popup.style.display = "none";
     document.getElementById("inGame").style.filter = "blur(0)";
-    popup.style.top = "-300px";
     clean();
 }

@@ -1,10 +1,5 @@
-@font-face {
-    src: url(../fonts/OldLondon.ttf);
-    font-family: "Old London";
-}
-
 html {
-    font-family: "Old London";
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 body {
@@ -72,11 +67,15 @@ aside {
 
 .gm {
     margin: 5% 0;
+
+    &,
+    label {
+        min-width: max-content;
+    }
 }
 
 
 #options {
-    margin-top: 30%;
     display: flex;
     text-align: center;
     flex-direction: column;
@@ -92,15 +91,18 @@ aside {
 
 #sizeLabel,
 #alignmentLabel {
+    min-width: max-content;
     font-size: 1em;
     padding: 15% 0;
 }
+
 
 #game {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+
 }
 
 #grid {
@@ -111,8 +113,8 @@ aside {
 
 .square {
     display: flex;
-    width: 13.3333em;
-    height: 13.3333em;
+    width: 12.333em;
+    height: 12.333em;
     align-items: center;
     justify-content: center;
     border: solid white;
@@ -120,45 +122,69 @@ aside {
     background: black;
 }
 
-
 #score {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 30%;
+    width: 50%;
+    min-width: max-content;
     margin-top: 4%;
 }
 
 .player {
-    display: flex;
+    display: inline-flex;
+    justify-content: space-between;
     align-items: center;
-    flex-direction: column;
+    min-width: max-content;
+    font-size: 30pt;
+    color: white;
+    & #symbol_p1 {
+        margin-right: 25px;   
+    }
+    & #symbol_p2 {
+        margin-left: 25px;
+    }
+}
+
+.subPlayer {
+    text-align: center;
     width: auto;
     font-size: 30pt;
     color: white;
 }
 
-#p1,
-#p2,
-#draw {
-    padding-top: 10px;
+.player img{
+    border: solid 1pt rgba(#bbb, 0.95);
+    border-radius: 10%;;
+    padding: 10px;
+
 }
+
+#draw {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    min-width: max-content;
+    color: white;
+    font-size: 30pt;
+}
+
 
 #result {
     position: absolute;
-    top: -25%;
-    left: 31em;
-    display: flex;
+    top: 25%;
+    left: 21%;
+    display: none;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    height: 25%;
-    width: 30%;
+    height: 40%;
+    width: 40%;
     background-color: rgba(25, 25, 25, 0.95);
     border-bottom-left-radius: 5%;
     border-bottom-right-radius: 5%;
-    transition: 0.5s;
-
+    transition: 1.25s;
+    transform: scale(0.2);
 }
 
 #result i {
@@ -169,6 +195,13 @@ aside {
 }
 
 #popup button {
+    background: none;
+    border: 2px solid;
+    font: inherit;
+    line-height: 1;
+    margin: 0.5em;
+    padding: 1em 2em;
     width: 30%;
     cursor: pointer;
+
 }
