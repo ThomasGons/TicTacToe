@@ -1,32 +1,45 @@
-
-
 const gameBoard = document.getElementById("grid");
 let squares = document.querySelectorAll(".square");
 let alignment = document.getElementById("alignmentLength");
-let grid = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
+let grid = [
+    [0, 0, 0],
+    [0, 0, 0],
+    [0, 0, 0]
+];
 let size = document.getElementById("size");
 
 initGame();
 
 size.addEventListener('change', initGame)
 
-function initGame(){
+function initGame() {
     // empty grid and remove event
     squares.forEach(cell => {
         cell.removeEventListener('click', play)
-    }, {once:true});
+    }, {
+        once: true
+    });
     grid = [];
     symbol = 0;
     gameBoard.innerHTML = "";
-    
+
     // re-init the grid with the new size 
-    let i = 0, j = 0;
-    for (i = 0; i < size.value; i++){
-        for (j = 0; j < size.value; j++){
+    let i = 0,
+        j = 0;
+    for (i = 0; i < size.value; i++) {
+        for (j = 0; j < size.value; j++) {
             let cell = document.createElement('div');
             cell.setAttribute('class', 'square');
-            cell.style.setProperty('width', ((37.5 - 0.125 * (Number(size.value) + 1)) / size.value)+'em');
-            cell.style.setProperty('height', ((37.5 - 0.125 * (Number(size.value) + 1)) / size.value)+'em');
+            cell.style.setProperty('width', ((37.5 - 0.125 * (Number(size.value) + 1)) / size.value) + 'em');
+            cell.style.setProperty('height', ((37.5 - 0.125 * (Number(size.value) + 1)) / size.value) + 'em');
+            if (!i && !j)
+                cell.style.setProperty('border-top-left-radius', "10%");
+            else if (!i && j == size.value - 1)
+                cell.style.setProperty('border-top-right-radius', "10%");
+            else if (i == size.value - 1 && !j)
+                cell.style.setProperty('border-bottom-left-radius', "10%");
+            else if (i == size.value -1 && j == size.value - 1)
+                cell.style.setProperty('border-bottom-right-radius', "10%");
             cell.addEventListener('click', (cell) => {
                 play(cell.target);
             });
@@ -35,8 +48,8 @@ function initGame(){
     }
     gameBoard.style.setProperty('grid-template-columns', 'repeat(' + size.value + ', auto)');
     document.getElementById("sizeLabel").textContent = "Size: " + size.value;
-    
-    for (i = 0; i < size.value; i++){
+
+    for (i = 0; i < size.value; i++) {
         grid.push([]);
         for (j = 0; j < size.value; j++)
             grid[i].push(0);
@@ -45,5 +58,5 @@ function initGame(){
 
     if (Number(alignment.value) > Number(size.value))
         document.getElementById("alignmentLabel").textContent = "Alignment: " + size.value;
-    alignment.setAttribute('max', size.value);   
+    alignment.setAttribute('max', size.value);
 }

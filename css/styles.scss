@@ -1,3 +1,5 @@
+$base-color: #ddd;
+
 html {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
@@ -7,6 +9,7 @@ body {
     max-height: 100vh; */
     background-color: black;
     min-width: max-content;
+    user-select: none;
 }
 
 #init {
@@ -27,7 +30,7 @@ body {
 
 #init i {
     text-align: center;
-    color: white;
+    color: $base-color;
     font-size: 50pt;
 }
 
@@ -39,9 +42,10 @@ body {
 
 h1 {
     text-align: center;
-    color: white;
+    background: linear-gradient(90deg, rgba(43, 244, 152, 1) 0%, rgba(0, 129, 255, 1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     margin: 0;
-    font-weight: 300;
     font-size: 50pt;
 }
 
@@ -49,12 +53,14 @@ aside {
     float: right;
     margin-top: 2.5%;
     width: 18%;
-    color: white;
+    height: 100%;
+    color: $base-color;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     font-size: 30pt;
+
 }
 
 
@@ -67,10 +73,38 @@ aside {
 
 .gm {
     margin: 5% 0;
+    display: inline-block;
 
     &,
     label {
         min-width: max-content;
+    }
+}
+
+$primary: #17bfc7;
+$seconday: #9F9F9F;
+
+.gm input[type=radio] {
+    vertical-align: middle;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    background: none;
+    border: 0;
+    box-shadow: inset 0 0 0 1px $seconday;
+    box-shadow: inset 0 0 0 1.5px $seconday;
+    appearance: none;
+    padding: 0;
+    margin: 0;
+    transition: box-shadow 150ms cubic-bezier(.95, .15, .5, 1.25);
+    pointer-events: none;
+
+    &:focus {
+        outline: none
+    }
+
+    &:checked {
+        box-shadow: inset 0 0 0 0.25rem $primary
     }
 }
 
@@ -96,6 +130,23 @@ aside {
     padding: 15% 0;
 }
 
+#options .slider {
+    appearance: none;
+    height: .25rem;
+    outline: none;
+    background: linear-gradient(-90deg, rgba(43, 244, 152, 1) 0%, rgba(0, 129, 255, 1) 100%);
+    border-radius: .25rem;
+
+    &::-webkit-slider-thumb {
+        appearance: none;
+        width: 1.5rem;
+        background-color: black;
+        height: 1.5rem;
+        border: .25rem solid $primary;
+        border-radius: 1rem;
+        cursor: pointer;
+    }
+}
 
 #game {
     display: flex;
@@ -117,15 +168,15 @@ aside {
     height: 12.333em;
     align-items: center;
     justify-content: center;
-    border: solid white;
+    border: solid #aaa;
     border-width: 1px;
-    background: black;
+    background: transparent;
 }
 
 #score {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
     width: 50%;
     min-width: max-content;
     margin-top: 4%;
@@ -137,10 +188,12 @@ aside {
     align-items: center;
     min-width: max-content;
     font-size: 30pt;
-    color: white;
+    color: $base-color;
+
     & #symbol_p1 {
-        margin-right: 25px;   
+        margin-right: 25px;
     }
+
     & #symbol_p2 {
         margin-left: 25px;
     }
@@ -150,12 +203,13 @@ aside {
     text-align: center;
     width: auto;
     font-size: 30pt;
-    color: white;
+    color: $base-color;
+    filter: drop-shadow(0 0rem 0.9em $primary);
 }
 
-.player img{
+.player img {
     border: solid 1pt rgba(#bbb, 0.95);
-    border-radius: 10%;;
+    border-radius: 10%;
     padding: 10px;
 
 }
@@ -165,7 +219,7 @@ aside {
     align-items: center;
     flex-direction: column;
     min-width: max-content;
-    color: white;
+    color: $base-color;
     font-size: 30pt;
 }
 
@@ -180,7 +234,8 @@ aside {
     flex-direction: column;
     height: 40%;
     width: 40%;
-    background-color: rgba(25, 25, 25, 0.95);
+    min-width: max-content ;
+    background-color: rgba(#111, 0.85);
     border-bottom-left-radius: 5%;
     border-bottom-right-radius: 5%;
     transition: 1.25s;
@@ -189,19 +244,21 @@ aside {
 
 #result i {
     text-align: center;
-    color: white;
+    color: $base-color;
     font-size: 50pt;
     padding: 10%;
 }
 
-#popup button {
+#result button {
     background: none;
     border: 2px solid;
-    font: inherit;
+    border-radius: 5%;
     line-height: 1;
     margin: 0.5em;
-    padding: 1em 2em;
+    padding: 0.5em;
     width: 30%;
+    color: $base-color;
+    font-size: 1.5em;
     cursor: pointer;
 
 }

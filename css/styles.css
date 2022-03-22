@@ -9,6 +9,10 @@ body {
   min-width: -webkit-max-content;
   min-width: -moz-max-content;
   min-width: max-content;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 #init {
@@ -39,7 +43,7 @@ body {
 
 #init i {
   text-align: center;
-  color: white;
+  color: #ddd;
   font-size: 50pt;
 }
 
@@ -51,9 +55,11 @@ body {
 
 h1 {
   text-align: center;
-  color: white;
+  background: -webkit-gradient(linear, left top, right top, from(#2bf498), to(#0081ff));
+  background: linear-gradient(90deg, #2bf498 0%, #0081ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   margin: 0;
-  font-weight: 300;
   font-size: 50pt;
 }
 
@@ -61,7 +67,8 @@ aside {
   float: right;
   margin-top: 2.5%;
   width: 18%;
-  color: white;
+  height: 100%;
+  color: #ddd;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -91,6 +98,7 @@ aside {
 
 .gm {
   margin: 5% 0;
+  display: inline-block;
 }
 
 .gm,
@@ -98,6 +106,38 @@ aside {
   min-width: -webkit-max-content;
   min-width: -moz-max-content;
   min-width: max-content;
+}
+
+.gm input[type=radio] {
+  vertical-align: middle;
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  background: none;
+  border: 0;
+  -webkit-box-shadow: inset 0 0 0 1px #9F9F9F;
+          box-shadow: inset 0 0 0 1px #9F9F9F;
+  -webkit-box-shadow: inset 0 0 0 1.5px #9F9F9F;
+          box-shadow: inset 0 0 0 1.5px #9F9F9F;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  padding: 0;
+  margin: 0;
+  -webkit-transition: -webkit-box-shadow 150ms cubic-bezier(0.95, 0.15, 0.5, 1.25);
+  transition: -webkit-box-shadow 150ms cubic-bezier(0.95, 0.15, 0.5, 1.25);
+  transition: box-shadow 150ms cubic-bezier(0.95, 0.15, 0.5, 1.25);
+  transition: box-shadow 150ms cubic-bezier(0.95, 0.15, 0.5, 1.25), -webkit-box-shadow 150ms cubic-bezier(0.95, 0.15, 0.5, 1.25);
+  pointer-events: none;
+}
+
+.gm input[type=radio]:focus {
+  outline: none;
+}
+
+.gm input[type=radio]:checked {
+  -webkit-box-shadow: inset 0 0 0 0.25rem #17bfc7;
+          box-shadow: inset 0 0 0 0.25rem #17bfc7;
 }
 
 #options {
@@ -131,6 +171,28 @@ aside {
   min-width: max-content;
   font-size: 1em;
   padding: 15% 0;
+}
+
+#options .slider {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  height: .25rem;
+  outline: none;
+  background: -webkit-gradient(linear, right top, left top, from(#2bf498), to(#0081ff));
+  background: linear-gradient(-90deg, #2bf498 0%, #0081ff 100%);
+  border-radius: .25rem;
+}
+
+#options .slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+          appearance: none;
+  width: 1.5rem;
+  background-color: black;
+  height: 1.5rem;
+  border: 0.25rem solid #17bfc7;
+  border-radius: 1rem;
+  cursor: pointer;
 }
 
 #game {
@@ -169,9 +231,9 @@ aside {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  border: solid white;
+  border: solid #aaa;
   border-width: 1px;
-  background: black;
+  background: transparent;
 }
 
 #score {
@@ -181,9 +243,9 @@ aside {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
   width: 50%;
   min-width: -webkit-max-content;
   min-width: -moz-max-content;
@@ -205,7 +267,7 @@ aside {
   min-width: -moz-max-content;
   min-width: max-content;
   font-size: 30pt;
-  color: white;
+  color: #ddd;
 }
 
 .player #symbol_p1 {
@@ -220,7 +282,9 @@ aside {
   text-align: center;
   width: auto;
   font-size: 30pt;
-  color: white;
+  color: #ddd;
+  -webkit-filter: drop-shadow(0 0rem 0.9em #17bfc7);
+          filter: drop-shadow(0 0rem 0.9em #17bfc7);
 }
 
 .player img {
@@ -243,7 +307,7 @@ aside {
   min-width: -webkit-max-content;
   min-width: -moz-max-content;
   min-width: max-content;
-  color: white;
+  color: #ddd;
   font-size: 30pt;
 }
 
@@ -264,7 +328,10 @@ aside {
           flex-direction: column;
   height: 40%;
   width: 40%;
-  background-color: rgba(25, 25, 25, 0.95);
+  min-width: -webkit-max-content;
+  min-width: -moz-max-content;
+  min-width: max-content;
+  background-color: rgba(17, 17, 17, 0.85);
   border-bottom-left-radius: 5%;
   border-bottom-right-radius: 5%;
   -webkit-transition: 1.25s;
@@ -275,19 +342,21 @@ aside {
 
 #result i {
   text-align: center;
-  color: white;
+  color: #ddd;
   font-size: 50pt;
   padding: 10%;
 }
 
-#popup button {
+#result button {
   background: none;
   border: 2px solid;
-  font: inherit;
+  border-radius: 5%;
   line-height: 1;
   margin: 0.5em;
-  padding: 1em 2em;
+  padding: 0.5em;
   width: 30%;
+  color: #ddd;
+  font-size: 1.5em;
   cursor: pointer;
 }
 /*# sourceMappingURL=styles.css.map */

@@ -25,6 +25,6 @@ async function closePopup() {
     await sleep(700);
     popup.style.display = "none";
     document.getElementById("inGame").style.filter = "blur(0)";
-    await sleep(1500);
+    await sleep(750);
     clean();
 }
